@@ -1,0 +1,7 @@
+import calendar
+day = int (input ('ingresar día '))
+month = int (input ('ingresar mes '))
+year = int (input ('ingresar año '))
+DiaDeLaSemana = calendar.weekday(year, month, day)
+DiaNombre = calendar.day_name[DiaDeLaSemana]
+print(f'El {day}/{month}/{year} fue un {DiaNombre}')
