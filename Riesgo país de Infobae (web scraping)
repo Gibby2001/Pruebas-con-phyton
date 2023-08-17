@@ -1,0 +1,17 @@
+import requests
+from bs4 import BeautifulSoup
+
+
+# URL del sitio web a hacer scraping
+url = "https://www.infobae.com/economia/indicador/riesgo-pais/"
+response = requests.get(url)
+
+# Parseamos el contenido HTML con BeautifulSoup
+soup = BeautifulSoup(response.content, "html.parser")
+
+# Encontramos todos los elementos HTML que contienen los títulos y enlaces de las noticias
+riesgo_pais = soup.find("span", class_="cc-val")
+
+riesgo = riesgo_pais.text
+
+print(f'El riesgo país es de{riesgo} puntos')
