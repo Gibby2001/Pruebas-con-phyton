@@ -1,6 +1,12 @@
 import requests
 from bs4 import BeautifulSoup
+import time
+import datetime
 
+hoy = datetime.datetime.now()
+#hora = hoy.ctime()
+formato = "%H:%M:%S %d/%m/%Y"
+fecha = hoy.strftime(formato)
 
 # URL del sitio web a hacer scraping
 url = "https://www.infobae.com/economia/indicador/riesgo-pais/"
@@ -14,4 +20,4 @@ riesgo_pais = soup.find("span", class_="cc-val")
 
 riesgo = riesgo_pais.text
 
-print(f'El riesgo país es de{riesgo} puntos')
+print(f'El riesgo país es de{riesgo} puntos, a las {fecha}')
